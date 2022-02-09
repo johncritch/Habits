@@ -1,8 +1,67 @@
 ﻿@{
     ViewData["Title"] = "Add/Edit Tasks";
 }
-@model TaskResponse
+@model Habits.Models.TaskResponse
 
-<h1>@ViewData["Title"]</h1>
 
-<p>Here is the form to add new tasks and edit existing ones</p>
+
+<div class="container text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="row mb-2">
+
+        <!-- Task -->
+        <div class="col">
+            <label>Task</label>
+            <input type="text" class="form-control" placeholder="e.g. Walk the Dog">
+        </div>
+
+        <!-- Due Date -->
+        <div class="col">
+            <label>Due Date</label>
+            <input type="text" class="form-control" placeholder="e.g. 2/26/2022">
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <!-- Quadrant -->
+        <div class="col">
+            <select class="form-select">
+                <option value="">Select Category</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+            </select>
+            <label class="form-select">Quadrant</label>
+        </div>
+
+        <!-- Category -->
+        <div class="col">
+            <select class="form-select">
+                <option value="">Select Category</option>
+                <option value="Home">Home</option>
+                <option value="School">School</option>
+                <option value="Work">Work</option>
+                <option value="Church">Church</option>
+            </select>
+            <label class="form-select">Category</label>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <!-- Completed -->
+        <div class="col">
+            <select class="form-select">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <label class="form-check-label">Completed</label>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
