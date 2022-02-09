@@ -8,10 +8,34 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+<<<<<<< HEAD
     <nav class="navar bg-white border-bottom mb-3">
         <a class="navbar-brand" asp-controller="Home" asp-action="Index">Home</a>
         <a class="navbar-brand" asp-controller="Home" asp-action="Delete">Delete</a>
     </nav>
+=======
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Habits</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">My Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Add">Add/Edit Tasks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+>>>>>>> master
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -20,7 +44,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Habits - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            "It always seems impossible until it's done." — Nelson Mandela
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
