@@ -1,1 +1,8 @@
-﻿
+﻿.quadrant{
+    border: solid 2px black !important;       
+}
+
+.position {
+    writing-mode: vertical-lr;
+    vertical-align: unset;
+}
