@@ -12,6 +12,14 @@ namespace Habits.Controllers
     public class HomeController : Controller
     {
 
+        private TaskDataContext _theContext { get; set; }
+
+        //Constructor
+        public HomeController(TaskDataContext theContext)
+        {
+            _theContext = theContext;
+        }
+
         public IActionResult Index()
         {
             return View();
