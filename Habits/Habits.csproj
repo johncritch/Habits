@@ -8,6 +8,7 @@
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 </Project>
