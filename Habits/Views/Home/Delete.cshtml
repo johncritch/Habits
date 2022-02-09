@@ -1,8 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Delete";
 }
-@model TaskResponse
+@model Habits.Models.TaskResponse
+
 
 <h1>@ViewData["Title"]</h1>
 
-<p>This is the delete page</p>
+<form method="post" asp-action="Delete">
+    <button type ="submit">Delete</button>
+    <a asp-controller="Home" asp-action="">Cancel</a>
+</form>
