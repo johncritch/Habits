@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Habits.Models;
 
@@ -13,12 +14,6 @@ namespace Habits.Controllers
     {
         private TaskDataContext _theContext { get; set; }
 
-        public HomeController(TaskDataContext theContext)
-        {
-            _theContext = theContext;
-        }
-
-        private TaskDataContext _theContext { get; set; }
 
         //Constructor
         public HomeController(TaskDataContext theContext)
@@ -29,8 +24,8 @@ namespace Habits.Controllers
         public IActionResult Index()
         {
             var tasks = _theContext.Tasks
-                //.Include(x => x.Category)
-                //.OrderBy(film => film.Title)
+                .Include(x => x.Category)
+                //.OrderBy(film => T)
                 .ToList();
             return View(tasks);
         }
@@ -38,7 +33,7 @@ namespace Habits.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.Categories = _theContext.Category.ToList();
+            ViewBag.Categories = _theContext.Categories.ToList();
             return View();
         }
 
@@ -54,7 +49,7 @@ namespace Habits.Controllers
             }
             else
             {
-                ViewBag.Categories = _theContext.Category.ToList();
+                ViewBag.Categories = _theContext.Categories.ToList();
 
                 return View(tr);
             }
@@ -63,7 +58,7 @@ namespace Habits.Controllers
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
-            ViewBag.Categories = _theContext.Category.ToList();
+            ViewBag.Categories = _theContext.Categories.ToList();
 
             var task = _theContext.Tasks.Single(x => x.TaskID == taskid);
 
@@ -90,7 +85,7 @@ namespace Habits.Controllers
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
         {
-            _theContext.Films.Remove(tr);
+            _theContext.Tasks.Remove(tr);
             _theContext.SaveChanges();
 
             return RedirectToAction("Index");
