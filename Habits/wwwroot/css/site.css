@@ -3,17 +3,6 @@
 }
 
 .position {
-    height: 100px;
-    width: 200px;
-    display: flex;
-    flex-flow: column wrap;
-}
-.A {
-    height: 50%;
-    width: 100px;
-}
-
-.B {
-    height: 50%;
-    width: 100px;
+    writing-mode: vertical-lr;
+    vertical-align: unset;
 }
