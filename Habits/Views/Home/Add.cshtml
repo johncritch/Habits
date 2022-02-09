@@ -15,51 +15,50 @@
 
         <!-- Task -->
         <div class="col">
-            <label>Task</label>
-            <input type="text" class="form-control" placeholder="e.g. Walk the Dog">
+            <label asp-for="TaskName">Task</label>
+            <input asp-for="TaskName" type="text" class="form-control" placeholder="e.g. Walk the Dog">
         </div>
 
         <!-- Due Date -->
         <div class="col">
-            <label>Due Date</label>
-            <input type="text" class="form-control" placeholder="e.g. 2/26/2022">
+            <label asp-for="DueDate">Due Date</label>
+            <input asp-for="DueDate" type="date" class="form-control">
         </div>
     </div>
-
     <div class="row mb-2">
         <!-- Quadrant -->
         <div class="col">
-            <select class="form-select">
-                <option value="">Select Category</option>
+            <select class="form-select" asp-for="Quadrant">
+                <option value="">Select Quadrant</option>
                 <option value=1>1</option>
                 <option value=2>2</option>
                 <option value=3>3</option>
                 <option value=4>4</option>
             </select>
-            <label class="form-select">Quadrant</label>
+            <label class="form-select" asp-for="Quadrant">Quadrant</label>
         </div>
 
         <!-- Category -->
         <div class="col">
-            <select class="form-select">
+            <select class="form-select" asp-for="CategoryId">
                 <option value="">Select Category</option>
-                <option value="Home">Home</option>
-                <option value="School">School</option>
-                <option value="Work">Work</option>
-                <option value="Church">Church</option>
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
             </select>
-            <label class="form-select">Category</label>
+            <label class="form-select" asp-for="CategoryId">Category</label>
         </div>
     </div>
 
     <div class="row mb-2">
         <!-- Completed -->
         <div class="col">
-            <select class="form-select">
+            <select class="form-select" asp-for="Completed">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
-            <label class="form-check-label">Completed</label>
+            <label class="form-check-label" asp-for="Completed">Completed</label>
         </div>
     </div>
 

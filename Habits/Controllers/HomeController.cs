@@ -25,9 +25,8 @@ namespace Habits.Controllers
         {
             var tasks = _theContext.Tasks
                 .Include(x => x.Category)
-                //.OrderBy(film => T)
                 .ToList();
-            return View(tasks);
+            return View();
         }
 
         [HttpGet]
