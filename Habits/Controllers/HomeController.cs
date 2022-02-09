@@ -11,48 +11,80 @@ namespace Habits.Controllers
 {
     public class HomeController : Controller
     {
+        private TaskDataContext _theContext { get; set; }
+
+        public HomeController(TaskDataContext theContext)
+        {
+            _theContext = theContext;
+        }
 
         public IActionResult Index()
         {
-            return View();
+            var tasks = _theContext.Tasks
+                //.Include(x => x.Category)
+                //.OrderBy(film => film.Title)
+                .ToList();
+            return View(tasks);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
+            ViewBag.Categories = _theContext.Category.ToList();
             return View();
         }
 
         [HttpPost]
         public IActionResult Add(TaskResponse tr)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _theContext.Add(tr);
+                _theContext.SaveChanges();
+
+                return View("Index");
+            }
+            else
+            {
+                ViewBag.Categories = _theContext.Category.ToList();
+
+                return View(tr);
+            }
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int taskid)
         {
+            ViewBag.Categories = _theContext.Category.ToList();
 
+            var task = _theContext.Tasks.Single(x => x.TaskID == taskid);
 
-            return View("Add");
+            return View("Add", task);
 
         }
 
         [HttpPost]
         public IActionResult Edit(TaskResponse tr)
         {
+            _theContext.Update(tr);
+            _theContext.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int taskid)
         {
-            return View();
+            var task = _theContext.Tasks.Single(x => x.TaskID == taskid);
+            return View(task);
         }
 
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
         {
+            _theContext.Films.Remove(tr);
+            _theContext.SaveChanges();
+
             return RedirectToAction("Index");
         }
     }
