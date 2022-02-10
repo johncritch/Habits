@@ -67,7 +67,7 @@ namespace Habits.Models
                 new TaskResponse
                 {
                     TaskID = 5,
-                    TaskName = "Go to IS 455",
+                    TaskName = "Go to IS 455 Lecture",
                     CategoryId = 2,
                     DueDate = new DateTime(2022, 5, 1),
                     Completed = false,
