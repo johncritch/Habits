@@ -36,8 +36,44 @@ namespace Habits.Models
                     DueDate = new DateTime(2022, 5, 1),
                     Completed = false,
                     Quadrant = 1
+                },
+                new TaskResponse
+                {
+                    TaskID = 2,
+                    TaskName = "Repent",
+                    CategoryId = 4,
+                    DueDate = new DateTime(2022, 5, 1),
+                    Completed = false,
+                    Quadrant = 1
+                },
+                new TaskResponse
+                {
+                    TaskID = 3,
+                    TaskName = "Get Paid",
+                    CategoryId = 3,
+                    DueDate = new DateTime(2022, 5, 1),
+                    Completed = false,
+                    Quadrant = 2
+                },
+                new TaskResponse
+                {
+                    TaskID = 4,
+                    TaskName = "Take Out Trash",
+                    CategoryId = 1,
+                    DueDate = new DateTime(2022, 5, 1),
+                    Completed = false,
+                    Quadrant = 3
+                },
+                new TaskResponse
+                {
+                    TaskID = 5,
+                    TaskName = "Go to IS 455",
+                    CategoryId = 2,
+                    DueDate = new DateTime(2022, 5, 1),
+                    Completed = false,
+                    Quadrant = 4
                 }
-                );
+            );
         }
     }
 }

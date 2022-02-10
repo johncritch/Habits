@@ -23,10 +23,8 @@ namespace Habits.Controllers
 
         public IActionResult Index()
         {
-            var tasks = _theContext.Tasks
-                .Include(x => x.Category)
-                .ToList();
-            return View();
+            var tasks = _theContext.Tasks.ToList();
+            return View(tasks);
         }
 
         [HttpGet]
@@ -44,7 +42,7 @@ namespace Habits.Controllers
                 _theContext.Add(tr);
                 _theContext.SaveChanges();
 
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else
             {

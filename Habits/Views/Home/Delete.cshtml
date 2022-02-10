@@ -3,9 +3,13 @@
 }
 @model Habits.Models.TaskResponse
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="display-3">@ViewData["Title"]</h1>
 
-<form method="post" asp-action="Delete">
-    <button type ="submit">Delete</button>
-    <a asp-controller="Home" asp-action="">Cancel</a>
+<h4>Are you sure you want to delete @Model.TaskName from your tasks?</h4>
+
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-light">Cancel</a>
+
+    <input type="hidden" asp-for="TaskID" />
 </form>
